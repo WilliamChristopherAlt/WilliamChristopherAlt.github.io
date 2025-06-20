@@ -2,149 +2,331 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nguyen Hong Bao Ngoc – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyen Hong Bao Ngoc</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Georgia', serif;
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #f4f4f4;
+      padding: 40px 20px;
+      line-height: 1.7;
+      background: #fafafa;
       color: #333;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    header {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
+    
+    h1 {
+      font-size: 2.8em;
+      font-weight: normal;
+      margin: 0 0 10px 0;
+      color: #2c2c2c;
+      letter-spacing: -1px;
     }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    
+    .subtitle {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 40px;
+      font-style: italic;
     }
-    h1, h2 {
-      margin-top: 0;
+    
+    .contact {
+      margin-bottom: 50px;
+      font-size: 0.95em;
     }
-    .project img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 0.5rem;
-      border-radius: 4px;
+    
+    .contact a {
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #ddd;
     }
-    ul {
-      padding-left: 1.2rem;
+    
+    .contact a:hover {
+      border-bottom-color: #333;
     }
-    .taglist {
+    
+    h2 {
+      font-size: 1.4em;
+      margin: 50px 0 20px 0;
+      color: #2c2c2c;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 8px;
+      font-weight: normal;
+    }
+    
+    p {
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+    
+    .stats {
+      margin: 30px 0;
+      font-size: 0.9em;
+      color: #555;
       display: flex;
+      gap: 30px;
       flex-wrap: wrap;
-      gap: 0.5rem;
     }
-    .tag {
-      background: #007acc;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      font-size: 0.9rem;
+    
+    .stat {
+      white-space: nowrap;
+    }
+    
+    .skills {
+      margin: 25px 0;
+    }
+    
+    .skills span {
+      display: inline-block;
+      margin-right: 15px;
+      margin-bottom: 8px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    
+    .project {
+      margin: 45px 0;
+      border-left: 2px solid #f0f0f0;
+      padding-left: 25px;
+    }
+    
+    .project h3 {
+      font-size: 1.2em;
+      margin: 0 0 15px 0;
+      color: #2c2c2c;
+      font-weight: normal;
+    }
+    
+    .project-meta {
+      font-size: 0.85em;
+      color: #888;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .project p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+    
+    .project-images {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+    
+    .project-images img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border: 1px solid #e8e8e8;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    
+    .project-images img:hover {
+      opacity: 1;
+    }
+    
+    .education {
+      margin: 40px 0;
+      padding: 25px;
+      background: #f8f8f8;
+      border-left: 3px solid #ddd;
+    }
+    
+    .education h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.1em;
+      color: #2c2c2c;
+      font-weight: normal;
+    }
+    
+    .education p {
+      margin: 5px 0;
+      color: #555;
+      text-align: left;
+    }
+    
+    .qualifications {
+      margin: 30px 0;
+    }
+    
+    .qualifications ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .qualifications li {
+      margin-bottom: 8px;
+      color: #555;
+      font-size: 0.95em;
+    }
+    
+    .qualifications li:before {
+      content: "• ";
+      color: #999;
+      margin-right: 8px;
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 15px;
+      }
+      
+      h1 {
+        font-size: 2.2em;
+      }
+      
+      .stats {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .project {
+        padding-left: 15px;
+      }
+      
+      .project-images {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
-
   <base href="/Portfolio/">
 </head>
 <body>
-
   <header>
     <h1>Nguyen Hong Bao Ngoc</h1>
-    <p>Software Engineering Student | Saigon International University</p>
+    <p class="subtitle">Software Engineering Student at Saigon International University</p>
+    
+    <div class="contact">
+      <a href="mailto:your.email@example.com">your.email@example.com</a> · <a href="tel:+84123456789">+84 123 456 789</a>
+    </div>
   </header>
 
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
-    <p>Phone: +84 123 456 789</p>
-  </section>
-
-  <section class="profile">
-    <h2>Profile</h2>
-    <p>
-      I am a second-year Software Engineering student at Saigon International University with a GPA of 3.7/4.0 and strong proficiency in English (IELTS 8.0).
-      I have hands-on experience in Python, C#, C++, and SQL, and I’m particularly interested in AI and web technologies.
-    </p>
-    <p>
-      My recent work includes deploying AI pipelines end-to-end — from data collection and preprocessing to model training and evaluation using tools like Google Colab.
-      I also have experience building web applications using the MVC architecture.
-    </p>
-  </section>
-
-  <section class="skills">
-    <h2>Skills</h2>
-    <div class="taglist">
-      <div class="tag">Python</div>
-      <div class="tag">C#</div>
-      <div class="tag">C++</div>
-      <div class="tag">SQL</div>
-      <div class="tag">Web Development</div>
-      <div class="tag">Google Colab</div>
-      <div class="tag">OpenGL</div>
-      <div class="tag">ASP.NET MVC</div>
-      <div class="tag">Database Design</div>
-      <div class="tag">AI Pipeline</div>
+  <section>
+    <p>I'm a second-year Software Engineering student with particular interests in artificial intelligence and mathematical visualization. Most of my recent work involves training neural networks for unconventional tasks and building interactive tools for exploring complex mathematical structures.</p>
+    
+    <p>I've been experimenting with using transformer architectures for physical simulations, creating fractal generation systems, and developing real-time graphics applications. I also build web applications using traditional MVC patterns when the project calls for it.</p>
+    
+    <div class="stats">
+      <span class="stat">GPA: 3.7/4.0</span>
+      <span class="stat">IELTS: 8.0</span>
+      <span class="stat">Expected graduation: 2025</span>
     </div>
   </section>
 
-  <section class="qualifications">
-    <h2>Qualifications</h2>
-    <ul>
-      <li>IELTS: 8.0</li>
-      <li>Coursera Certificate: Machine Learning Specialization</li>
-    </ul>
+  <section>
+    <h2>Technical Background</h2>
+    
+    <div class="skills">
+      <span>Python</span>
+      <span>C#</span>
+      <span>C++</span>
+      <span>GLSL</span>
+      <span>SQL</span>
+      <span>OpenGL</span>
+      <span>ASP.NET MVC</span>
+      <span>Google Colab</span>
+      <span>TensorFlow</span>
+      <span>PyTorch</span>
+    </div>
   </section>
 
-  <section class="education">
+  <section>
     <h2>Education</h2>
-    <p><strong>Saigon International University</strong></p>
-    <p>Software Engineering (2023 – 2025)</p>
-    <p>GPA: 3.7 / 4.0 (as of June 2025)</p>
+    
+    <div class="education">
+      <h3>Saigon International University</h3>
+      <p>Bachelor of Software Engineering, 2023–2025</p>
+      <p>Current GPA: 3.7/4.0</p>
+    </div>
+    
+    <div class="qualifications">
+      <ul>
+        <li>IELTS: 8.0</li>
+        <li>Coursera Certificate: Machine Learning Specialization</li>
+      </ul>
+    </div>
   </section>
 
-  <section class="project">
-    <h2>Boids Simulation with Transformers</h2>
-    <p>
-      Conducted a research project where a Transformer model was trained to simulate Boids (flocking behavior). 
-      The model successfully learned to reproduce flocking dynamics, demonstrating that Transformers can generalize across complex physical systems and data formats.
-    </p>
-    <img src="images/ray_tracing/cornell_2560.png" alt="Boids Simulation Screenshot">
-  </section>
+  <section>
+    <h2>Selected Projects</h2>
+    
+    <div class="project">
+      <div class="project-meta">Machine Learning Research</div>
+      <h3>Training Transformers to Simulate Boids Flocking</h3>
+      <p>Investigated whether transformer neural networks can learn emergent collective behaviors by training a model from scratch to simulate realistic flocking dynamics. The transformer successfully learned to reproduce boid behaviors including separation, alignment, and cohesion across different flock sizes and environmental conditions. This work demonstrates how attention mechanisms can capture complex multi-agent interactions and suggests potential applications for modeling other collective phenomena in physics and biology.</p>
+      <div class="project-images">
+        <img src="images/ray_tracing/1.png" alt="Training visualization">
+        <img src="images/ray_tracing/2.png" alt="Flocking patterns">
+        <img src="images/ray_tracing/3.png" alt="Model architecture">
+        <img src="images/ray_tracing/4.png" alt="Results comparison">
+      </div>
+    </div>
 
-  <section class="project">
-    <h2>Movie Ticket Booking Website</h2>
-    <p>
-      Built a complete web application for booking movie tickets, handling both frontend and backend using the MVC design pattern.
-      Designed a modern and professional site for real users to explore and reserve movie tickets.
-    </p>
-    <img src="images/ray_tracing/coolest_thing_i_ever_done.png" alt="Movie Booking Screenshot">
-  </section>
-  <section class="project">
-    <h2>Fractal Visualization via Newton-Raphson</h2>
-    <p>
-      Created a visualization of fractals generated by applying the Newton-Raphson method to systems of nonlinear equations.
-      Explored convergence patterns across the real plane to reveal complex fractal structures.
-    </p>
-    <img src="images/ray_tracing/camfire_caes.png" alt="Fractal Visualization Screenshot">
-  </section>
+    <div class="project">
+      <div class="project-meta">Interactive Mathematics</div>
+      <h3>Holomorphic Function Explorer</h3>
+      <p>Built an interactive web application for exploring complex holomorphic functions and their associated fractals. Users can navigate through the Mandelbrot set, Julia sets, and custom complex functions with smooth zooming and real-time parameter adjustment. The application addresses the lack of accessible interactive tools for visualizing complex analysis concepts, featuring optimized rendering algorithms that maintain performance at extreme zoom levels and export functionality for high-quality mathematical illustrations.</p>
+      <div class="project-images">
+        <img src="images/ray_tracing/5.png" alt="Mandelbrot exploration">
+        <img src="images/ray_tracing/6.png" alt="Julia set variations">
+        <img src="images/ray_tracing/7.png" alt="Custom function input">
+        <img src="images/ray_tracing/8.png" alt="Parameter controls">
+      </div>
+    </div>
 
-  <section class="project">
-    <h2>Path Tracer with OpenGL</h2>
-    <p>
-      Built a basic path tracer from scratch using OpenGL and GLSL shaders, supporting diffuse, reflective, and glass-like materials.
-      The project deepened my understanding of how to model light transport and global illumination for realistic scene rendering.
-    </p>
-    <img src="images/ray_tracing/kittenOP.png" alt="Path Tracer Screenshot">
-  </section>
+    <div class="project">
+      <div class="project-meta">Computational Art</div>
+      <h3>IFS Fractal Generator</h3>
+      <p>Developed a system for generating fractals through Iterated Function Systems, applying sequences of contractive linear transformations to create complex mathematical art. The generator supports custom transformation matrices with probability weights, producing variations of classical fractals like the Sierpinski triangle and Barnsley fern, as well as original compositions. The implementation includes advanced algorithms for random point selection and efficient rendering of high-resolution outputs suitable for both mathematical study and artistic applications.</p>
+      <div class="project-images">
+        <img src="images/ray_tracing/9.png" alt="Sierpinski variations">
+        <img src="images/ray_tracing/10.png" alt="Fern patterns">
+        <img src="images/ray_tracing/11.png" alt="Custom transformations">
+        <img src="images/ray_tracing/12.png" alt="Algorithm visualization">
+      </div>
+    </div>
 
+    <div class="project">
+      <div class="project-meta">Web Development</div>
+      <h3>Cinema Ticket Booking Platform</h3>
+      <p>Designed and implemented a full-stack movie booking application using ASP.NET MVC architecture. The platform handles real-time seat selection, payment processing, and booking management with support for concurrent users. Features include user authentication, session management, automated email confirmations, and an administrative interface for cinema operators to manage showtimes and analyze booking data. The system demonstrates practical application of MVC design patterns and database management in a commercial context.</p>
+      <div class="project-images">
+        <img src="images/ray_tracing/13.png" alt="Main interface">
+        <img src="images/ray_tracing/14.png" alt="Seat selection">
+        <img src="images/ray_tracing/15.png" alt="Payment flow">
+        <img src="images/ray_tracing/16.png" alt="Admin dashboard">
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">Mathematical Visualization</div>
+      <h3>Newton-Raphson Fractal Renderer</h3>
+      <p>Created a visualization system for fractals generated by applying the Newton-Raphson iterative method to complex polynomial equations. Each point in the complex plane is colored according to which root the algorithm converges to, revealing intricate fractal boundaries at the basins of attraction. The renderer supports polynomials of various degrees and coefficients, allowing exploration of different fractal families and their mathematical properties. This project combines numerical analysis with computer graphics to make abstract mathematical concepts visually accessible.</p>
+      <div class="project-images">
+        <img src="images/ray_tracing/17.png" alt="Cubic polynomial fractals">
+        <img src="images/ray_tracing/18.png" alt="Convergence basins">
+        <img src="images/ray_tracing/19.png" alt="Higher-order systems">
+        <img src="images/ray_tracing/20.png" alt="Color mapping schemes">
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">Computer Graphics</div>
+      <h3>OpenGL Path Tracer</h3>
+      <p>Implemented a physically-based path tracing renderer using OpenGL compute shaders to achieve photorealistic image synthesis. The engine supports multiple material types including Lambertian diffuse surfaces, perfect mirrors, and physically accurate glass with refraction. Key features include Monte Carlo integration for global illumination, importance sampling techniques for efficient convergence, and progressive rendering for interactive feedback. This project provided deep insights into light transport physics, ray-surface intersection algorithms, and GPU parallel computing optimization.</p>
+      <div class="project-images">
+        <img src="images/ray_tracing/21.png" alt="Cornell box rendering">
+        <img src="images/ray_tracing/22.png" alt="Material showcase">
+        <img src="images/ray_tracing/23.png" alt="Global illumination">
+        <img src="images/ray_tracing/24.png" alt="Progressive samples">
+      </div>
+    </div>
+  </section>
 </body>
 </html>
