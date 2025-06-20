@@ -114,35 +114,27 @@
     .project-images {
       margin-top: 25px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
     
-    .project-images img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border: 1px solid #e8e8e8;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-    
-    .project-images img:hover {
-      opacity: 1;
-    }
-    
+    .project-images img,
     .project-images video {
       width: 100%;
-      height: 120px;
+      height: 200px;
       object-fit: cover;
-      border: 1px solid #e8e8e8;
-      opacity: 0.8;
-      transition: opacity 0.2s;
+      border: 2px solid #e8e8e8;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-
+    
     .project-images img:hover,
     .project-images video:hover {
-      opacity: 1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border-color: #333;
     }
 
     .education {
@@ -185,6 +177,61 @@
       color: #999;
       margin-right: 8px;
     }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .modal img,
+    .modal video {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+    }
+
+    .close:hover {
+      color: #ccc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     
     @media (max-width: 600px) {
       body {
@@ -205,11 +252,26 @@
       }
       
       .project-images {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+      }
+
+      .project-images img,
+      .project-images video {
+        height: 180px;
+      }
+
+      .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+      }
+
+      .close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
       }
     }
   </style>
-  <!-- <base href="/Portfolio/"> -->
 </head>
 <body>
   <header>
@@ -327,5 +389,63 @@
       </div>
     </div>
   </section>
+
+  <!-- Modal for viewing images/videos -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <script>
+    // Modal functionality
+    const modal = document.getElementById('imageModal');
+    const modalContent = document.getElementById('modalContent');
+    const closeBtn = document.querySelector('.close');
+    
+    // Add click listeners to all images and videos
+    document.querySelectorAll('.project-images img, .project-images video').forEach(media => {
+      media.addEventListener('click', function() {
+        modal.style.display = 'block';
+        
+        if (this.tagName === 'VIDEO') {
+          const video = document.createElement('video');
+          video.src = this.src;
+          video.controls = true;
+          video.autoplay = true;
+          video.loop = true;
+          modalContent.innerHTML = '';
+          modalContent.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = this.src;
+          img.alt = this.alt;
+          modalContent.innerHTML = '';
+          modalContent.appendChild(img);
+        }
+      });
+    });
+    
+    // Close modal when clicking the close button
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      modalContent.innerHTML = '';
+    });
+    
+    // Close modal when clicking outside the content
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modalContent.innerHTML = '';
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        modalContent.innerHTML = '';
+      }
+    });
+  </script>
 </body>
 </html>
