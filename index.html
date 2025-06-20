@@ -114,35 +114,81 @@
     .project-images {
       margin-top: 25px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
     
     .project-images img {
       width: 100%;
-      height: 120px;
+      height: 200px;
       object-fit: cover;
       border: 1px solid #e8e8e8;
-      opacity: 0.8;
-      transition: opacity 0.2s;
+      border-radius: 8px;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
     
     .project-images img:hover {
       opacity: 1;
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
     
     .project-images video {
       width: 100%;
-      height: 120px;
+      height: 200px;
       object-fit: cover;
       border: 1px solid #e8e8e8;
-      opacity: 0.8;
-      transition: opacity 0.2s;
+      border-radius: 8px;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    .project-images img:hover,
     .project-images video:hover {
       opacity: 1;
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      cursor: pointer;
+    }
+
+    .lightbox-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .close:hover {
+      opacity: 0.7;
     }
 
     .education {
@@ -185,6 +231,27 @@
       color: #999;
       margin-right: 8px;
     }
+
+    /* Video placeholder for missing videos */
+    .video-placeholder {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                  linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                  linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                  linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-style: italic;
+      text-align: center;
+      padding: 20px;
+    }
     
     @media (max-width: 600px) {
       body {
@@ -205,13 +272,23 @@
       }
       
       .project-images {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+      }
+
+      .project-images img,
+      .project-images video {
+        height: 180px;
       }
     }
   </style>
-  <!-- <base href="/Portfolio/"> -->
 </head>
 <body>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  </div>
+
   <header>
     <h1>Nguyen Hong Bao Ngoc</h1>
     <p class="subtitle">Software Engineering Student at Saigon International University</p>
@@ -273,10 +350,22 @@
     <div class="project">
       <div class="project-meta">Machine Learning Research</div>
       <h3>Training Transformers to Simulate Boids Flocking</h3>
-      <p>Investigated whether transformer neural networks can learn emergent collective behaviors by training a model from scratch to simulate realistic flocking dynamics. The transformer successfully learned to reproduce boid behaviors including separation, alignment, and cohesion and generalized to different flock sizes. This work demonstrates how attention mechanisms can capture complex multi-agent interactions and suggests potential applications for .</p>
+      <p>Investigated whether transformer neural networks can learn emergent collective behaviors by training a model from scratch to simulate realistic flocking dynamics. The transformer successfully learned to reproduce boid behaviors including separation, alignment, and cohesion and generalized to different flock sizes. This work demonstrates how attention mechanisms can capture complex multi-agent interactions and suggests potential applications for collective intelligence systems.</p>
       <div class="project-images">
-        <video src="./images/transformer_boids/BoidsGif.mp4" autoplay loop muted playsinline></video>
-        <video src="./images/transformer_boids/BoidsTransGif.mp4" autoplay loop muted playsinline></video>
+        <div class="video-placeholder">
+          <div>
+            <strong>Boids Simulation Video</strong><br>
+            (Video file: Boids.mp4)<br>
+            <small>Video not available - check file path</small>
+          </div>
+        </div>
+        <div class="video-placeholder">
+          <div>
+            <strong>Transformer Boids Video</strong><br>
+            (Video file: BoidsTrans.mp4)<br>
+            <small>Video not available - check file path</small>
+          </div>
+        </div>
         <img src="./images/transformer_boids/dampened.png" alt="Results comparison, Transformer's reconstruction was dampened">
       </div>
     </div>
@@ -286,8 +375,8 @@
       <h3>Cinema Ticket Booking Platform</h3>
       <p>Designed and implemented a full-stack movie booking application using ASP.NET MVC architecture. The platform handles seat selection, payment processing, and booking management. Features include user authentication, automated email confirmations.</p>
       <div class="project-images">
-        <img src="./images/movies/movie.png">
-        <img src="./images/movies/ticket.png">
+        <img src="./images/movies/movie.png" alt="Movie booking interface">
+        <img src="./images/movies/ticket.png" alt="Ticket booking system">
       </div>
     </div>
 
@@ -308,10 +397,10 @@
       <h3>Holomorphic Function Explorer</h3>
       <p>Built an interactive application for exploring complex holomorphic functions and their associated fractals. Users can navigate through the Mandelbrot set, Julia sets, and custom complex functions with smooth zooming and real-time parameter adjustment. The application addresses the lack of accessible interactive tools for visualizing complex analysis concepts, featuring optimized rendering algorithms that maintain performance at extreme zoom levels and the ability to customize the holomorphic function.</p>
       <div class="project-images">
-        <img src="./images/holomorphic/1.png">
-        <img src="./images/holomorphic/2.png">
-        <img src="./images/holomorphic/3.png">
-        <img src="./images/holomorphic/4.png">
+        <img src="./images/holomorphic/1.png" alt="Holomorphic function visualization 1">
+        <img src="./images/holomorphic/2.png" alt="Holomorphic function visualization 2">
+        <img src="./images/holomorphic/3.png" alt="Holomorphic function visualization 3">
+        <img src="./images/holomorphic/4.png" alt="Holomorphic function visualization 4">
       </div>
     </div>
 
@@ -320,12 +409,45 @@
       <h3>Newton-Raphson Fractal Renderer</h3>
       <p>Created a visualization system for fractals generated by applying the Newton-Raphson iterative method to complex polynomial equations. Each point in the complex plane is colored according to the length of the path the point must traverse before converging on a root. The renderer supports polynomials of various degrees and coefficients.</p>
       <div class="project-images">
-        <img src="./images/newton/hot.png">
-        <img src="./images/newton/feather.png">
-        <img src="./images/newton/phoenix_bright.png">
-        <img src="./images/newton/plasma.png">
+        <img src="./images/newton/hot.png" alt="Newton-Raphson fractal - hot colormap">
+        <img src="./images/newton/feather.png" alt="Newton-Raphson fractal - feather pattern">
+        <img src="./images/newton/phoenix_bright.png" alt="Newton-Raphson fractal - phoenix bright">
+        <img src="./images/newton/plasma.png" alt="Newton-Raphson fractal - plasma colormap">
       </div>
     </div>
   </section>
+
+  <script>
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const close = document.getElementsByClassName('close')[0];
+    const images = document.querySelectorAll('.project-images img');
+
+    images.forEach(img => {
+      img.addEventListener('click', function() {
+        lightbox.style.display = 'block';
+        lightboxImg.src = this.src;
+        lightboxImg.alt = this.alt;
+      });
+    });
+
+    close.onclick = function() {
+      lightbox.style.display = 'none';
+    }
+
+    lightbox.onclick = function(event) {
+      if (event.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    }
+
+    // Handle escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
