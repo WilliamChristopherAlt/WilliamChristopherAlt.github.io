@@ -85,6 +85,48 @@
       color: #555;
     }
     
+    .education {
+      margin: 25px 0;
+      padding: 25px;
+      background: #f8f8f8;
+      border-left: 3px solid #ddd;
+    }
+    
+    .education h3 {
+      margin: 0 0 15px 0;
+      font-size: 1.1em;
+      color: #2c2c2c;
+      font-weight: normal;
+    }
+    
+    .education p {
+      margin: 8px 0;
+      color: #555;
+      text-align: left;
+    }
+    
+    .qualifications {
+      margin: 25px 0;
+    }
+    
+    .qualifications ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .qualifications li {
+      margin-bottom: 12px;
+      color: #555;
+      font-size: 0.95em;
+    }
+    
+    .qualifications li:before {
+      content: "• ";
+      color: #999;
+      margin-right: 8px;
+    }
+    
     .project {
       margin: 45px 0;
       border-left: 2px solid #f0f0f0;
@@ -96,6 +138,18 @@
       margin: 0 0 15px 0;
       color: #2c2c2c;
       font-weight: normal;
+    }
+
+    .project h3 a {
+      color: #2c2c2c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .project h3 a:hover {
+      color: #0066cc;
+      border-bottom-color: #0066cc;
     }
     
     .project-meta {
@@ -135,47 +189,6 @@
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       border-color: #333;
-    }
-
-    .education {
-      margin: 40px 0;
-      padding: 25px;
-      background: #f8f8f8;
-      border-left: 3px solid #ddd;
-    }
-    
-    .education h3 {
-      margin: 0 0 8px 0;
-      font-size: 1.1em;
-      color: #2c2c2c;
-      font-weight: normal;
-    }
-    
-    .education p {
-      margin: 5px 0;
-      color: #555;
-      text-align: left;
-    }
-    
-    .qualifications {
-      margin: 30px 0;
-    }
-    
-    .qualifications ul {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .qualifications li {
-      margin-bottom: 8px;
-      color: #555;
-      font-size: 0.95em;
-    }
-    
-    .qualifications li:before {
-      content: "• ";
-      color: #999;
-      margin-right: 8px;
     }
 
     /* Modal styles */
@@ -270,29 +283,53 @@
         right: 20px;
         font-size: 30px;
       }
+
+      /* Mobile responsive for header */
+      header div:first-child h1 {
+        font-size: 2.5em !important;
+      }
+      
+      header div:nth-child(2) p {
+        text-align: left !important;
+        font-size: 1em !important;
+      }
+      
+      header div:nth-child(2) h1 {
+        font-size: 1.8em !important;
+      }
+
+      .project-images img,
+      .project-images video {
+        display: block;
+        margin: 0;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Nguyen Hong Bao Ngoc</h1>
-    <p class="subtitle">Software Engineering Student at Saigon International University</p>
-    
-    <div class="contact">
-      <a href="mailto:your.email@example.com">your.email@example.com</a> · <a href="tel:+84123456789">+84 123 456 789</a>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <h1 style="font-size: 3.5em; margin-bottom: 15px; color: #2c2c2c; font-weight: bold; letter-spacing: 2px;">PORTFOLIO</h1>
+    </div>
+    <div style="margin-bottom: 50px;">
+      <h1 style="margin: 0;">Nguyen Hong Bao Ngoc</h1>
+      <p class="subtitle" style="margin: 0; font-style: italic; text-align: right;">Software Engineering Student at Saigon International University</p>
     </div>
   </header>
 
   <section>
-    <p>I'm a second-year Software Engineering student with particular interests in artificial intelligence and mathematical visualization. Most of my recent work involves training neural networks for unconventional tasks and building interactive tools for exploring complex mathematical structures.</p>
-    
-    <p>I've been experimenting with using transformer architectures for physical simulations, creating fractal generation systems, and developing real-time graphics applications. I also build web applications using traditional MVC patterns when the project calls for it.</p>
-    
-    <div class="stats">
-      <span class="stat">GPA: 3.7/4.0</span>
-      <span class="stat">IELTS: 8.0</span>
-      <span class="stat">Expected graduation: 2025</span>
+    <h2>Contact me at</h2>
+    <div class="contact">
+      <p><strong>Email:</strong> <a href="#" id="email-copy">nguyenhongbaongock16@siu.edu.vn</a></p>
+      <p><strong>Phone:</strong> <a href="#" id="phone-copy">0356347980</a></p>
     </div>
+  </section>
+
+  <section>
+    <h2>Profile</h2>
+    <p>I am a second-year Software Engineering student at Saigon International University with a GPA of 3.7/4.0 and strong proficiency in English (IELTS 8.0). I have hands-on experience in Python, C#, C++, and SQL, and I’m particularly interested in AI and web technologies.</p>
+    
+    <p>My recent work includes deploying AI pipelines end-to-end — from data collection and preprocessing to model training and evaluation using tools like Google Colab. I also have experience building web applications using the MVC architecture.</p>
   </section>
 
   <section>
@@ -307,7 +344,6 @@
       <span>OpenGL</span>
       <span>ASP.NET MVC</span>
       <span>Google Colab</span>
-      <span>TensorFlow</span>
       <span>PyTorch</span>
     </div>
   </section>
@@ -319,72 +355,121 @@
       <h3>Saigon International University</h3>
       <p>Bachelor of Software Engineering, 2023–2025</p>
       <p>Current GPA: 3.7/4.0</p>
-    </div>
-    
-    <div class="qualifications">
-      <ul>
-        <li>IELTS: 8.0</li>
-        <li>Coursera Certificate: Machine Learning Specialization</li>
-      </ul>
+      <p>IELTS: 8.0</p>
+      <p>Coursera Certificate: Machine Learning Specialization</p>
     </div>
   </section>
 
   <section>
-    <h2>Selected Projects</h2>
+    <h2>My Projects</h2>
     
-    <div class="project">
-      <div class="project-meta">Machine Learning Research</div>
-      <h3>Training Transformers to Simulate Boids Flocking</h3>
-      <p>Investigated whether transformer neural networks can learn emergent collective behaviors by training a model from scratch to simulate realistic flocking dynamics. The transformer successfully learned to reproduce boid behaviors including separation, alignment, and cohesion and generalized to different flock sizes. This work demonstrates how attention mechanisms can capture complex multi-agent interactions and suggests potential applications for .</p>
-      <div class="project-images">
+  <div class="project">
+    <div class="project-meta">Machine Learning Research</div>
+    <h3><a href="https://github.com/WilliamChristopherAlt/BoidsTransformer" target="_blank">Training Transformers to Simulate Boids Flocking</a></h3>
+    <p>
+      Explored whether transformer neural networks can learn emergent collective behaviors by training a model from scratch to simulate realistic flocking dynamics.
+      The model was able to reproduce key Boid behaviors like separation, alignment, and cohesion, and it generalized well to different flock sizes.
+      This project shows how attention mechanisms can model complex multi-agent interactions and learn physical patterns from data.
+    </p>
+    <div class="project-images">
+      <div>
         <video src="./images/transformer_boids/Boids.mp4" autoplay loop muted playsinline></video>
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">Original Boids simulation</p>
+      </div>
+      <div>
         <video src="./images/transformer_boids/BoidsTrans.mp4" autoplay loop muted playsinline></video>
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">Reconstruction from Transformer model</p>
+      </div>
+      <div>
         <img src="./images/transformer_boids/dampened.png" alt="Results comparison, Transformer's reconstruction was dampened">
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">
+          Density plot of output acceleration: the Transformer’s predictions are more concentrated near the origin compared to the ground truth, showing a dampening effect
+        </p>
+      </div>
+      <div>
+        <video src="./images/transformer_boids/BoidsObstacles.mp4" autoplay loop muted playsinline></video>
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">
+          Extension of the Boids simulation: The algorithm is modified to handle obstacle avoidance, showing the agents navigating around barriers while maintaining flocking behavior.
+        </p>
       </div>
     </div>
+  </div>
+
+  <div class="project">
+    <div class="project-meta">Image Processing</div>
+    <h3><a href="https://github.com/WilliamChristopherAlt/DenoiseResNet/" target="_blank">Image Denoising with ResNet</a></h3>
+    <p>
+      Developed a ResNet-based image denoiser capable of removing various noise types, including Gaussian, Poisson, and Salt & Pepper. The model processes overlapping image patches and reconstructs high-quality outputs, demonstrating details preservation.
+    </p>
+    <div class="project-images">
+      <div>
+        <img src="./images/resnet_denoise/river_saltpepper.png">
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">Salt and pepper noise</p>
+      </div>
+      <div>
+        <img src="./images/resnet_denoise/river_saltpepper_result.png">
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">Denoised, it is amazing how much details the model has recovered, but there are some black and white speckles artifacts</p>
+      </div>
+      <div>
+        <img src="./images/resnet_denoise/tree_pepper.png">
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">Pepper noise</p>
+      </div>
+      <div>
+        <img src="./images/resnet_denoise/tree_pepper_result.png">
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">Denoised, like the previous image, notice how there are some black speckles.</p>
+      </div>
+      <div>
+        <img src="./images/resnet_denoise/jet_gaussian.png">
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">Gaussian noise</p>
+      </div>
+      <div>
+        <img src="./images/resnet_denoise/jet_gaussian_result.png">
+        <p style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem;">A seperate model was trained for smooth noise like Gaussian or Poisson, the model's output was not as impressive due to the fact that every single pixel was corrupted, leading to artifacts and incomplete denoising.</p>
+      </div>
+    </div>
+  </div>
 
     <div class="project">
       <div class="project-meta">Web Development</div>
-      <h3>Cinema Ticket Booking Platform</h3>
+      <h3><a href="https://github.com/WilliamChristopherAlt/DKMovies2" target="_blank">Cinema Ticket Booking Website</a></h3>
       <p>Designed and implemented a full-stack movie booking application using ASP.NET MVC architecture. The platform handles seat selection, payment processing, and booking management. Features include user authentication, automated email confirmations.</p>
       <div class="project-images">
         <img src="./images/movies/movie.png">
         <img src="./images/movies/ticket.png">
+        <img src="./images/movies/history.png">
+        <img src="./images/movies/notifications.png">
       </div>
     </div>
 
     <div class="project">
       <div class="project-meta">Computer Graphics</div>
-      <h3>OpenGL Path Tracer</h3>
-      <p>Implemented a physically-based path tracing renderer using OpenGL compute shaders to achieve photorealistic image synthesis. The engine supports multiple material types including Lambertian diffuse surfaces, perfect mirrors, and physically accurate glass with refraction. Key features include Monte Carlo integration for global illumination, importance sampling techniques for efficient convergence, and progressive rendering for interactive feedback. This project provided deep insights into light transport physics, ray-surface intersection algorithms, and GPU parallel computing optimization.</p>
+      <h3><a href="https://github.com/WilliamChristopherAlt/RayTracing2" target="_blank">OpenGL Path Tracer</a></h3>
+      <p>Implemented a physically-based path tracing renderer using OpenGL compute shaders to achieve photorealistic image synthesis. The engine supports multiple material types including Lambertian diffuse surfaces, perfect mirrors, physically accurate glass with refraction and models loading with texture support. This is probably my favorite project among the ones listed here.</p>
       <div class="project-images">
         <img src="./images/ray_tracing/kittenOP.png" alt="Model with Textures">
         <img src="./images/ray_tracing/coolest_thing_i_ever_done.png" alt="Global illumination">
         <img src="./images/ray_tracing/cornell_2560.png" alt="Cornell box rendering">
-        <img src="./images/ray_tracing/second.png" alt="Material showcase">
+        <img src="./images/ray_tracing/third.png" alt="Material showcase">
       </div>
     </div>
 
     <div class="project">
-      <div class="project-meta">Interactive Mathematics</div>
-      <h3>Holomorphic Function Explorer</h3>
-      <p>Built an interactive application for exploring complex holomorphic functions and their associated fractals. Users can navigate through the Mandelbrot set, Julia sets, and custom complex functions with smooth zooming and real-time parameter adjustment. The application addresses the lack of accessible interactive tools for visualizing complex analysis concepts, featuring optimized rendering algorithms that maintain performance at extreme zoom levels and the ability to customize the holomorphic function.</p>
+      <div class="project-meta">Fractals</div>
+      <h3><a href="https://github.com/WilliamChristopherAlt/Holomorphic" target="_blank">Holomorphic Function Explorer</a></h3>
+      <p>Built an interactive application for exploring holomorphic functions and their associated fractals. Users can navigate through the Mandelbrot set, Julia sets, and custom complex functions with zooming and real-time parameter adjustment. The application addresses the lack of accessible interactive tools for visualizing complex analysis concepts, featuring optimized rendering algorithms that maintain performance at extreme zoom levels and the ability to customize the holomorphic function.</p>
       <div class="project-images">
         <img src="./images/holomorphic/1.png">
         <img src="./images/holomorphic/2.png">
         <img src="./images/holomorphic/3.png">
         <img src="./images/holomorphic/4.png">
       </div>
-    </div>
-
-    <div class="project">
-      <div class="project-meta">Mathematical Visualization</div>
-      <h3>Newton-Raphson Fractal Renderer</h3>
-      <p>Created a visualization system for fractals generated by applying the Newton-Raphson iterative method to complex polynomial equations. Each point in the complex plane is colored according to the length of the path the point must traverse before converging on a root. The renderer supports polynomials of various degrees and coefficients.</p>
+      
+      <h3 style="margin-top: 40px;"><a href="https://github.com/WilliamChristopherAlt/Newton-Fractals-for-System-of-Equations" target="_blank">Newton-Raphson Fractal Renderer</a></h3>
+      <p>Created a visualization system for fractals generated by applying the Newton-Raphson iterative method to complex polynomial equations. Each point in the complex plane is colored according to the length of the path the point must traverse before converging on a root. The renderer supports any abitrary system of equations with differentiable functions.</p>
       <div class="project-images">
         <img src="./images/newton/hot.png">
         <img src="./images/newton/feather.png">
-        <img src="./images/newton/phoenix_bright.png">
+        <img src="./images/newton/poly0.png">
         <img src="./images/newton/plasma.png">
       </div>
     </div>
@@ -397,6 +482,31 @@
   </div>
 
   <script>
+    // Copy to clipboard functionality
+    document.getElementById('email-copy').addEventListener('click', function(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText('nguyenhongbaongock16@siu.edu.vn').then(function() {
+        // Visual feedback
+        const originalText = e.target.textContent;
+        e.target.textContent = 'Copied!';
+        setTimeout(() => {
+          e.target.textContent = originalText;
+        }, 1000);
+      });
+    });
+
+    document.getElementById('phone-copy').addEventListener('click', function(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText('0356347980').then(function() {
+        // Visual feedback
+        const originalText = e.target.textContent;
+        e.target.textContent = 'Copied!';
+        setTimeout(() => {
+          e.target.textContent = originalText;
+        }, 1000);
+      });
+    });
+
     // Modal functionality
     const modal = document.getElementById('imageModal');
     const modalContent = document.getElementById('modalContent');
